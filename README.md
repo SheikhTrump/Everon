@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EVERON — Luxury Real Estate Web Experience
 
-## Getting Started
+A flagship digital experience for **EVERON**, a premier architectural real estate developer in Bangladesh. Built with modern web standards, cinematic typography, smooth motion choreography, interactive floor plans, dynamic project catalogs, and optimized performance.
 
-First, run the development server:
+---
 
+## ✨ Features
+
+- **Cinematic Visual Language**: Tailored architectural aesthetic with custom gold accents, dark luxury backdrop, and precision typography.
+- **Interactive Project Catalog**: Real-time filtering across residential, commercial, and mixed-use luxury developments.
+- **Interactive Presence Map**: Dynamic SVG-based Dhaka locations (Gulshan, Banani, Dhanmondi, Bashundhara, Baridhara, Tejgaon) with active project quick-previews.
+- **Project Detail View & Interactive 3D/Floor Plans**: Interactive floor plan visualizer with unit specifications, pricing details, and photo gallery with lightbox.
+- **Booking & Inquiry Workflow**: Instant private tour scheduling modal with calendar, time slots, and API integration (`/api/inquire`).
+- **Smooth Inertial Scrolling**: Powered by `@studio-freight/lenis` with coordinated modal lifecycle listeners.
+- **Responsive & Accessible**: Fully adaptive across all viewport sizes, fine-pointer mouse tracking with luxury cursor, and full touch fallback.
+- **SEO & Social Optimization**: Dynamic `sitemap.ts`, `robots.ts`, OpenGraph metadata, and image generation.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16 (App Router & Turbopack)](https://nextjs.org)
+- **Library**: React 19
+- **Styling**: Tailwind CSS v4
+- **Animation**: Framer Motion
+- **Smooth Scroll**: Lenis
+- **Type Checking**: TypeScript 5
+- **Linting**: ESLint 9
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- Node.js 18.18+ or 20+
+- npm / yarn / pnpm
+
+### 2. Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Build for Production
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ☁️ Deployment on Vercel
 
-To learn more about Next.js, take a look at the following resources:
+This repository is ready for 1-click deployment on [Vercel](https://vercel.com):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this repository to GitHub.
+2. In the Vercel dashboard, click **"Add New Project"** and import your GitHub repository.
+3. Vercel automatically detects Next.js:
+   - **Framework Preset**: Next.js
+   - **Build Command**: `next build`
+   - **Output Directory**: `.next`
+4. Click **Deploy**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+Private & Confidential &copy; 2026 EVERON. All rights reserved.
