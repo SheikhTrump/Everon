@@ -5,8 +5,8 @@ export const siteConfig = {
   tagline: "Real Estate, Planned Right",
   description:
     "Everon is a newly launched real estate developer in Bangladesh, currently planning its first residential and commercial developments in Dhaka and Chittagong.",
-  phone: "+880 1234-567890",
-  whatsapp: "https://wa.me/8801234567890",
+  phone: "+880 1350-510744",
+  whatsapp: "https://wa.me/8801350510744",
   email: "info@everon.com.bd",
   address: "House 42, Road 11, Banani, Dhaka 1213, Bangladesh",
 };
