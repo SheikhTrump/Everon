@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { siteConfig } from "@/lib/data";
+import { siteConfig, projects } from "@/lib/data";
 
 const officeLocations = [
   {
     id: "dhaka",
-    name: "Head Office — Dhaka",
+    name: "Office — Dhaka",
     address: siteConfig.address,
     phone: siteConfig.phone,
     whatsapp: siteConfig.whatsapp,
@@ -17,22 +17,10 @@ const officeLocations = [
     mapEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.0245!2d90.4023!3d23.7937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ3JzM3LjMiTiA5MMKwMjQnMDguMyJF!5e0!3m2!1sen!2sbd!4v1699900000000",
   },
-  {
-    id: "chittagong",
-    name: "Regional Office — Chittagong",
-    address: "Tower 3, Level 14, Agrabad Commercial Area, Chittagong 4100",
-    phone: "+880 1987-654321",
-    whatsapp: "https://wa.me/8801987654321",
-    email: "chittagong@everon.com.bd",
-    hours: "Sunday — Thursday: 9:30 AM — 6:30 PM",
-    coords: { lat: 22.3275, lng: 91.8153 },
-    mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.12!2d91.8153!3d22.3275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDE5JzM5LjAiTiA5McKwNDgnNTUuMSJF!5e0!3m2!1sen!2sbd!4v1699900000000",
-  },
 ];
 
 export default function ContactView() {
-  const [activeOffice, setActiveOffice] = useState<string>("dhaka");
+  const [activeOffice] = useState<string>("dhaka");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -92,14 +80,14 @@ export default function ContactView() {
             <div className="flex items-center gap-2 mb-4">
               <span className="w-8 h-[1px] bg-gold" />
               <p className="text-caption text-gold uppercase tracking-widest">
-                Private Consultation
+                Get in Touch
               </p>
             </div>
             <h1 className="text-hero font-display text-base mb-3">
-              Initiate a Dialogue
+              Contact Us
             </h1>
             <p className="text-base/60 text-lg max-w-xl">
-              Connect with our Private Client Advisory for confidential project viewings, bespoke acquisitions, and master-plan inquiries.
+              Questions about a project, pricing, or timelines? Reach out and our team will get back to you.
             </p>
           </motion.div>
         </div>
@@ -117,7 +105,7 @@ export default function ContactView() {
                   Send Us a Message
                 </h2>
                 <p className="text-slate text-sm sm:text-base leading-relaxed">
-                  Please provide your contact coordinates and our senior liaison will reach out within two business hours.
+                  Share your details below and we&apos;ll get back to you within two business hours.
                 </p>
               </div>
 
@@ -131,8 +119,8 @@ export default function ContactView() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <div>
-                    <span className="font-semibold block mb-0.5">Consultation Registered (Ref: {referenceId})</span>
-                    <span>Your dossier has been routed to our Senior Client Director. Expect confidential communication shortly.</span>
+                    <span className="font-semibold block mb-0.5">Message Sent (Ref: {referenceId})</span>
+                    <span>We&apos;ll be in touch shortly.</span>
                   </div>
                 </motion.div>
               )}
@@ -212,14 +200,12 @@ export default function ContactView() {
                     }
                     className="w-full px-0 py-3.5 bg-transparent border-b border-sand focus:border-gold text-ink outline-none transition-colors text-sm"
                   >
-                    <option value="">Select Development (Optional)</option>
-                    <option value="Everon Heights">Everon Heights (Gulshan)</option>
-                    <option value="Everon Gardens">Everon Gardens (Banani)</option>
-                    <option value="Everon Commerce Tower">Everon Commerce Tower (Motijheel)</option>
-                    <option value="Everon Lakeside">Everon Lakeside (Uttara)</option>
-                    <option value="Everon Prime Plaza">Everon Prime Plaza (Dhanmondi)</option>
-                    <option value="Everon Chittagong Residences">Everon Chittagong Residences (Agrabad)</option>
-                    <option value="Everon Riverbank Enclave">Everon Riverbank Enclave (Purbachal)</option>
+                    <option value="">Select Project (Optional)</option>
+                    {projects.map((p) => (
+                      <option key={p.id} value={p.name}>
+                        {p.name} ({p.location.split(",")[0]})
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -250,38 +236,15 @@ export default function ContactView() {
                     disabled={submitting}
                     className="px-10 py-4 bg-emerald text-base text-xs font-semibold tracking-[0.08em] uppercase hover:bg-gold hover:text-ink transition-all duration-300 shadow-sm disabled:opacity-50"
                   >
-                    {submitting ? "Submitting..." : "Submit Consultation"}
+                    {submitting ? "Submitting..." : "Send Message"}
                   </button>
-                  <span className="text-[11px] text-slate font-mono">
-                    ISO 9001:2015 ASSURED
-                  </span>
                 </div>
               </form>
             </div>
 
-            {/* Right Map & Offices Column */}
+            {/* Right Map & Office Column */}
             <div className="lg:col-span-6 space-y-6">
-              {/* Office Selector Tabs */}
-              <div className="flex border border-sand bg-base p-1">
-                {officeLocations.map((office) => {
-                  const isActive = office.id === activeOffice;
-                  return (
-                    <button
-                      key={office.id}
-                      onClick={() => setActiveOffice(office.id)}
-                      className={`flex-1 py-3 px-4 text-xs tracking-wider uppercase transition-all duration-300 font-medium ${
-                        isActive
-                          ? "bg-emerald text-base shadow-sm"
-                          : "text-slate hover:text-ink"
-                      }`}
-                    >
-                      {office.id === "dhaka" ? "Dhaka Head Office" : "Chittagong Office"}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Architectural Dark Map */}
+              {/* Map */}
               <div className="relative h-[340px] border border-sand/80 overflow-hidden bg-ink shadow-md group">
                 <iframe
                   src={selectedOffice.mapEmbed}

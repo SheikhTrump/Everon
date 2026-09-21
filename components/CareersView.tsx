@@ -129,9 +129,8 @@ export default function CareersView() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-lg text-base/60 max-w-xl"
           >
-            Build your career at one of Bangladesh&apos;s most admired real estate
-            developers. We&apos;re always looking for passionate people who share our
-            commitment to architectural quality.
+            We&apos;re a newly launched developer building our founding team in Dhaka and
+            Chittagong. If you care about doing the work right, we&apos;d like to hear from you.
           </motion.p>
         </div>
       </section>
@@ -150,13 +149,13 @@ export default function CareersView() {
               {
                 title: "Impact",
                 description:
-                  "Every role at Everon contributes directly to shaping the architectural skyline of Bangladesh.",
+                  "Join early. As a newly launched developer, everyone on the founding team shapes how Everon builds.",
                 icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
               },
               {
                 title: "Culture",
                 description:
-                  "A collaborative, respectful workplace where engineering precision is expected and design innovation is celebrated.",
+                  "A collaborative, straightforward workplace where engineering precision and honest communication both matter.",
                 icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
               },
             ].map((item, i) => (
@@ -272,10 +271,10 @@ export default function CareersView() {
             We are always seeking visionary talent in structural engineering, 3D visualization, architectural sustainability, and private client relations.
           </p>
           <button
-            onClick={() => handleOpenApply("Spontaneous Application / General Talent")}
+            onClick={() => handleOpenApply("General Application")}
             className="px-10 py-4 bg-gold text-ink text-xs font-semibold tracking-[0.08em] uppercase hover:bg-base transition-colors duration-300 inline-block shadow-md"
           >
-            Submit Spontaneous Dossier
+            Send a General Application
           </button>
         </div>
       </section>
@@ -315,10 +314,10 @@ export default function CareersView() {
                     APP REF: {referenceId}
                   </div>
                   <h3 className="font-display text-2xl text-ink mb-2">
-                    Application Dossier Received
+                    Application Received
                   </h3>
                   <p className="text-slate text-sm max-w-md mx-auto mb-6">
-                    Thank you for applying for <span className="font-semibold text-ink">{selectedJob}</span>. Our Talent Acquisition Committee will review your credentials against our architectural standards.
+                    Thank you for applying for <span className="font-semibold text-ink">{selectedJob}</span>. We&apos;ll review your application and reach out if it&apos;s a fit.
                   </p>
                   <button
                     onClick={() => setModalOpen(false)}
@@ -331,7 +330,7 @@ export default function CareersView() {
                 <div>
                   <div className="mb-6">
                     <p className="text-caption text-gold mb-1 uppercase tracking-wider">
-                      Application Dossier
+                      Application
                     </p>
                     <h3 className="font-display text-2xl text-ink">
                       Apply: {selectedJob}
@@ -417,7 +416,7 @@ export default function CareersView() {
                         rows={3}
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                        placeholder="Briefly highlight your landmark project experience..."
+                        placeholder="Briefly highlight your relevant experience..."
                         className="w-full px-3.5 py-2.5 bg-white border border-sand focus:border-gold outline-none text-ink text-sm resize-none"
                       />
                     </div>
@@ -428,7 +427,7 @@ export default function CareersView() {
                         disabled={submitting}
                         className="px-8 py-3 bg-emerald text-base text-xs font-semibold tracking-wider uppercase hover:bg-gold hover:text-ink transition-colors disabled:opacity-50"
                       >
-                        {submitting ? "Transmitting..." : "Submit Dossier"}
+                        {submitting ? "Submitting..." : "Submit Application"}
                       </button>
                     </div>
                   </form>

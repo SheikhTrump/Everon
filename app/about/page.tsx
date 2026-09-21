@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import AboutView from "@/components/AboutView";
 
 export const metadata: Metadata = {
-  title: "About Our Architectural Legacy & Leadership | EVERON",
+  title: "About Everon",
   description:
-    "Learn about Everon's nineteen-year heritage, executive leadership, engineering precision, and sustainability milestones shaping urban Bangladesh.",
+    "Everon is a newly launched real estate developer in Bangladesh. Learn about our current pipeline and the standards we're building to.",
   openGraph: {
-    title: "About EVERON — The Company & Vision",
+    title: "About EVERON",
     description:
-      "Crafting iconic living sanctuaries and Grade-A commercial developments in Bangladesh since 2005.",
+      "A newly launched real estate developer in Bangladesh, currently planning its first projects.",
   },
 };
 

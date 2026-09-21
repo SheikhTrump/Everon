@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Project } from "@/lib/data";
@@ -28,46 +27,45 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     >
       <Link
         href={`/properties/${project.slug}`}
-        className="group block transition-all duration-500"
+        className="group block border border-sand hover:border-gold/50 transition-colors duration-500 h-full"
       >
-        {/* Architectural Image Container — Clean and Pure */}
-        <div className="relative aspect-[4/5] overflow-hidden bg-sand/40 border border-sand">
-          <Image
-            src={project.image}
-            alt={project.name}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        {/* Index / Type Panel — no photography */}
+        <div className="relative aspect-[4/3] bg-ink flex flex-col justify-between p-6 overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-[0.08] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(201,166,107,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(201,166,107,0.6) 1px, transparent 1px)",
+              backgroundSize: "36px 36px",
+            }}
           />
+          <span className="relative font-mono text-xs text-gold/80 tracking-widest uppercase">
+            {String(index + 1).padStart(2, "0")} · {project.type}
+          </span>
+          <span className="relative font-display text-2xl sm:text-3xl text-base font-semibold leading-tight group-hover:text-gold transition-colors duration-300">
+            {project.name}
+          </span>
         </div>
 
-        {/* Editorial Typographic Metadata Block */}
-        <div className="pt-5 pb-2">
-          {/* Typology, Location & Architectural Status */}
+        {/* Metadata */}
+        <div className="pt-5 pb-5 px-5">
           <div className="flex items-center justify-between text-xs font-mono text-slate mb-2">
             <span className="uppercase tracking-widest text-emerald font-medium">
-              {project.type} · {project.location}
+              {project.location}
             </span>
             <span className="text-[11px] uppercase tracking-wider text-slate/60">
-              {project.status === "Ongoing" ? "In Construction" : project.status === "Upcoming" ? "Private Preview" : "Delivered"}
+              Planning
             </span>
           </div>
 
-          {/* Project Title */}
-          <h3 className="text-2xl font-display text-ink font-semibold group-hover:text-emerald transition-colors duration-300 mb-2">
-            {project.name}
-          </h3>
-
-          {/* Architectural Specifications Summary */}
           {project.stats && (
             <p className="text-xs text-slate/80 mb-3 font-mono">
-              {project.stats.units} Handcrafted Residences · {project.stats.floors} Levels · {project.stats.possessionDate}
+              {project.stats.units} Planned Units · {project.stats.floors} Floors · Target {project.stats.targetCompletion}
             </p>
           )}
 
-          {/* Subtle Monograph CTA */}
           <div className="inline-flex items-center gap-2 text-xs tracking-wider uppercase font-mono text-ink/70 group-hover:text-gold transition-colors duration-300">
-            <span>Explore Residence</span>
+            <span>View Project</span>
             <span className="text-[11px]">→</span>
           </div>
         </div>

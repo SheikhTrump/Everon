@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 
-export const alt = "EVERON | Architectural Distinction, Bangladesh";
+export const alt = "EVERON | Real Estate Developer, Bangladesh";
 export const size = {
   width: 1200,
   height: 630,
@@ -94,7 +94,7 @@ export default async function Image() {
             fontWeight: 500,
           }}
         >
-          Architectural Distinction & Luxury Living
+          Real Estate, Planned Right
         </div>
 
         {/* Divider bar */}
@@ -118,11 +118,11 @@ export default async function Image() {
             textTransform: "uppercase",
           }}
         >
-          <span>7 Landmark Developments</span>
+          <span>7 Projects in Planning</span>
           <span>•</span>
           <span>Dhaka & Chittagong</span>
           <span>•</span>
-          <span>Private Viewings by Appointment</span>
+          <span>Newly Launched</span>
         </div>
       </div>
     ),

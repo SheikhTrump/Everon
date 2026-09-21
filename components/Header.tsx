@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { siteConfig, projects } from "@/lib/data";
@@ -13,7 +12,6 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Properties", href: "/properties", hasMegaMenu: true },
   { label: "About", href: "/about" },
-  { label: "News", href: "/news" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
@@ -56,6 +54,9 @@ export default function Header() {
   }
 
   const featuredProjects = projects.slice(0, 3);
+  const residentialCount = projects.filter((p) => p.type === "Residential").length;
+  const commercialCount = projects.filter((p) => p.type === "Commercial").length;
+  const landCount = projects.filter((p) => p.type === "Land Development").length;
 
   return (
     <>
@@ -124,7 +125,7 @@ export default function Header() {
                                 <div>
                                   <p className="text-caption text-gold mb-3">Portfolio</p>
                                   <h4 className="font-display text-lg text-base mb-4">
-                                    Our Developments
+                                    Projects in Planning
                                   </h4>
                                   <ul className="space-y-2.5 text-xs tracking-wider uppercase">
                                     <li>
@@ -132,8 +133,8 @@ export default function Header() {
                                         href="/properties?type=Residential"
                                         className="text-base/70 hover:text-gold transition-colors flex items-center justify-between"
                                       >
-                                        Residential Enclaves
-                                        <span className="text-[10px] text-gold font-mono">04</span>
+                                        Residential
+                                        <span className="text-[10px] text-gold font-mono">{String(residentialCount).padStart(2, "0")}</span>
                                       </Link>
                                     </li>
                                     <li>
@@ -141,8 +142,8 @@ export default function Header() {
                                         href="/properties?type=Commercial"
                                         className="text-base/70 hover:text-gold transition-colors flex items-center justify-between"
                                       >
-                                        Commercial Landmarks
-                                        <span className="text-[10px] text-gold font-mono">02</span>
+                                        Commercial
+                                        <span className="text-[10px] text-gold font-mono">{String(commercialCount).padStart(2, "0")}</span>
                                       </Link>
                                     </li>
                                     <li>
@@ -150,8 +151,8 @@ export default function Header() {
                                         href="/properties?type=Land+Development"
                                         className="text-base/70 hover:text-gold transition-colors flex items-center justify-between"
                                       >
-                                        Land Enclaves
-                                        <span className="text-[10px] text-gold font-mono">01</span>
+                                        Land Development
+                                        <span className="text-[10px] text-gold font-mono">{String(landCount).padStart(2, "0")}</span>
                                       </Link>
                                     </li>
                                     <li>
@@ -159,17 +160,17 @@ export default function Header() {
                                         href="/properties"
                                         className="text-base/70 hover:text-gold transition-colors flex items-center justify-between"
                                       >
-                                        All Developments
-                                        <span className="text-[10px] text-gold font-mono">07</span>
+                                        All Projects
+                                        <span className="text-[10px] text-gold font-mono">{String(projects.length).padStart(2, "0")}</span>
                                       </Link>
                                     </li>
                                   </ul>
                                 </div>
 
                                 <div className="pt-4 border-t border-base/10">
-                                  <p className="text-caption text-gold mb-2">Prime Locations</p>
+                                  <p className="text-caption text-gold mb-2">Locations</p>
                                   <div className="flex flex-wrap gap-1.5">
-                                    {["Gulshan", "Banani", "Baridhara", "Purbachal", "Chittagong"].map((loc) => (
+                                    {["Gulshan", "Banani", "Motijheel", "Dhanmondi", "Purbachal", "Chittagong"].map((loc) => (
                                       <span
                                         key={loc}
                                         className="text-[11px] px-2.5 py-1 bg-base/5 border border-base/10 text-base/60"
@@ -181,15 +182,15 @@ export default function Header() {
                                 </div>
                               </div>
 
-                              {/* Right column: 3 Featured Project cards */}
+                              {/* Right column: Featured Project cards */}
                               <div className="col-span-9">
                                 <div className="flex items-center justify-between mb-4">
-                                  <p className="text-caption text-gold">Featured Highlights</p>
+                                  <p className="text-caption text-gold">Featured Projects</p>
                                   <Link
                                     href="/properties"
                                     className="text-xs tracking-wider uppercase text-gold hover:underline inline-flex items-center gap-1"
                                   >
-                                    Explore Full Catalog →
+                                    View All →
                                   </Link>
                                 </div>
 
@@ -198,29 +199,15 @@ export default function Header() {
                                     <Link
                                       key={p.id}
                                       href={`/properties/${p.slug}`}
-                                      className="group block bg-base/5 border border-base/10 hover:border-gold/50 transition-all duration-300 overflow-hidden"
+                                      className="group block bg-base/5 border border-base/10 hover:border-gold/50 transition-all duration-300 p-4"
                                     >
-                                      <div className="relative aspect-[16/10] overflow-hidden">
-                                        <Image
-                                          src={p.image}
-                                          alt={p.name}
-                                          fill
-                                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                          sizes="(max-width: 1200px) 25vw, 300px"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent" />
-                                        <div className="absolute top-2 left-2">
-                                          <span className="px-2 py-0.5 text-[9px] uppercase tracking-wider bg-gold text-ink font-semibold">
-                                            {p.status}
-                                          </span>
-                                        </div>
-                                        <div className="absolute bottom-2 left-3 right-3">
-                                          <p className="text-xs text-base/60">{p.location}</p>
-                                          <p className="font-display text-sm text-base truncate group-hover:text-gold transition-colors">
-                                            {p.name}
-                                          </p>
-                                        </div>
-                                      </div>
+                                      <span className="px-2 py-0.5 text-[9px] uppercase tracking-wider bg-gold/10 text-gold border border-gold/30 inline-block mb-3">
+                                        {p.status}
+                                      </span>
+                                      <p className="font-display text-sm text-base truncate group-hover:text-gold transition-colors mb-1">
+                                        {p.name}
+                                      </p>
+                                      <p className="text-xs text-base/50">{p.location}</p>
                                     </Link>
                                   ))}
                                 </div>
@@ -266,7 +253,7 @@ export default function Header() {
               onClick={() => setVisitModalOpen(true)}
               className="px-6 py-2.5 bg-gold text-ink text-xs font-semibold tracking-[0.12em] uppercase hover:bg-base hover:text-ink transition-all duration-300 shadow-md"
             >
-              Book a Visit
+              Book a Consultation
             </button>
           </div>
 
@@ -368,7 +355,7 @@ export default function Header() {
                 }}
                 className="w-full py-3.5 bg-emerald text-base text-xs font-semibold tracking-[0.08em] uppercase hover:bg-gold hover:text-ink transition-colors text-center"
               >
-                Book Private Site Tour
+                Book a Consultation
               </button>
 
               <div className="flex items-center justify-between text-xs text-base/60 pt-2">
@@ -381,7 +368,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   className="text-gold hover:underline"
                 >
-                  WhatsApp Concierge →
+                  WhatsApp →
                 </a>
               </div>
             </motion.div>

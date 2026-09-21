@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          error: "Full name and a valid contact coordinate (email or phone) are required.",
+          error: "Full name and either an email or phone number are required.",
         },
         { status: 400 }
       );
@@ -49,10 +49,10 @@ export async function POST(request: Request) {
       referenceId,
       message:
         body.type === "book-visit"
-          ? "Your private viewing request has been confirmed. Our Senior Client Director will reach out within 2 hours."
+          ? "Your consultation request has been received. We'll reach out within 2 hours."
           : body.type === "career"
-          ? "Your application dossier has been received by Everon Human Capital."
-          : "Your consultation inquiry has been registered with Everon Private Advisory.",
+          ? "Your application has been received."
+          : "Your message has been received.",
       details: {
         referenceId,
         timestamp,

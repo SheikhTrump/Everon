@@ -160,7 +160,7 @@ export default function FloorPlanExplorer({ floorPlans, projectName }: FloorPlan
                   }}
                   className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-emerald text-base text-sm tracking-[0.04em] uppercase hover:bg-gold hover:text-ink transition-colors duration-300 font-medium shadow-sm"
                 >
-                  Book Private Tour of This Layout
+                  Ask About This Layout
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -187,7 +187,7 @@ export default function FloorPlanExplorer({ floorPlans, projectName }: FloorPlan
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  Request Architectural Dossier
+                  Request Brochure
                 </button>
               </div>
 
@@ -205,10 +205,10 @@ export default function FloorPlanExplorer({ floorPlans, projectName }: FloorPlan
                     </div>
                     <div>
                       <p className="text-xs font-semibold text-ink uppercase tracking-wider">
-                        Dossier Queued for {brochureRequested}
+                        Brochure Requested: {brochureRequested}
                       </p>
                       <p className="text-[11px] text-slate">
-                        Our private client relations desk has prepared the technical brochure and floor specs.
+                        We&apos;ll send the floor plan and specs to your contact details shortly.
                       </p>
                     </div>
                   </div>

@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import ContactView from "@/components/ContactView";
 
 export const metadata: Metadata = {
-  title: "Contact & Private Client Advisory | EVERON",
+  title: "Contact | EVERON",
   description:
-    "Initiate a confidential dialogue with Everon's Senior Private Client Directors. Visit our Dhaka Head Office in Banani or Regional Office in Agrabad, Chittagong.",
+    "Get in touch with Everon. Visit our office in Banani, Dhaka, or reach us by phone, email, or WhatsApp.",
   openGraph: {
-    title: "Contact Everon Private Client Advisory",
-    description:
-      "Schedule a confidential viewing or inquire about bespoke acquisitions in Dhaka and Chittagong.",
+    title: "Contact Everon",
+    description: "Get in touch about any project in our current planning pipeline.",
   },
 };
 

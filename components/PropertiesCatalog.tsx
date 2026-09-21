@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/lib/data";
 
-const statusFilters = ["All", "Ongoing", "Upcoming", "Completed"];
 const typeFilters = ["All", "Residential", "Commercial", "Land Development"];
 
 export default function PropertiesCatalog() {
@@ -14,9 +13,7 @@ export default function PropertiesCatalog() {
   const router = useRouter();
 
   const initialType = searchParams.get("type") || "All";
-  const initialStatus = searchParams.get("status") || "All";
 
-  const [statusFilter, setStatusFilter] = useState(initialStatus);
   const [typeFilter, setTypeFilter] = useState(initialType);
 
   // Sync state if URL search parameters change externally
@@ -28,18 +25,12 @@ export default function PropertiesCatalog() {
     if (typeFromUrl && typeFilters.includes(typeFromUrl)) {
       setTypeFilter(typeFromUrl);
     }
-    const statusFromUrl = searchParams.get("status");
-    if (statusFromUrl && statusFilters.includes(statusFromUrl)) {
-      setStatusFilter(statusFromUrl);
-    }
   }
 
-  const updateFilters = (newStatus: string, newType: string) => {
-    setStatusFilter(newStatus);
+  const updateFilters = (newType: string) => {
     setTypeFilter(newType);
 
     const params = new URLSearchParams();
-    if (newStatus !== "All") params.set("status", newStatus);
     if (newType !== "All") params.set("type", newType);
 
     const query = params.toString();
@@ -47,9 +38,7 @@ export default function PropertiesCatalog() {
   };
 
   const filtered = projects.filter((p) => {
-    const matchStatus = statusFilter === "All" || p.status === statusFilter;
-    const matchType = typeFilter === "All" || p.type === typeFilter;
-    return matchStatus && matchType;
+    return typeFilter === "All" || p.type === typeFilter;
   });
 
   return (
@@ -78,7 +67,7 @@ export default function PropertiesCatalog() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-lg text-base/60 max-w-xl"
           >
-            Explore our collection of residential sanctuaries, commercial landmarks, and master-planned land estates across Bangladesh.
+            Our residential, commercial, and land developments across Bangladesh — all currently in the planning stage.
           </motion.p>
         </div>
       </section>
@@ -87,31 +76,12 @@ export default function PropertiesCatalog() {
       <section className="sticky top-[60px] z-30 bg-base/95 backdrop-blur-md border-b border-sand py-4">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
           <div className="flex flex-wrap gap-6 items-center">
-            {/* Status Filter */}
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-              {statusFilters.map((status) => (
-                <button
-                  key={status}
-                  onClick={() => updateFilters(status, typeFilter)}
-                  className={`px-3.5 py-1.5 text-xs tracking-[0.04em] uppercase transition-all duration-300 ${
-                    statusFilter === status
-                      ? "bg-emerald text-base font-medium shadow-sm"
-                      : "bg-sand text-slate hover:bg-ink/10"
-                  }`}
-                >
-                  {status}
-                </button>
-              ))}
-            </div>
-
-            <div className="w-px h-6 bg-sand hidden lg:block" />
-
             {/* Type Filter */}
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {typeFilters.map((type) => (
                 <button
                   key={type}
-                  onClick={() => updateFilters(statusFilter, type)}
+                  onClick={() => updateFilters(type)}
                   className={`px-3.5 py-1.5 text-xs tracking-[0.04em] uppercase transition-all duration-300 ${
                     typeFilter === type
                       ? "bg-emerald text-base font-medium shadow-sm"
@@ -146,7 +116,7 @@ export default function PropertiesCatalog() {
                 No developments currently match the selected criteria.
               </p>
               <button
-                onClick={() => updateFilters("All", "All")}
+                onClick={() => updateFilters("All")}
                 className="mt-4 px-6 py-2.5 bg-emerald text-base text-xs tracking-[0.04em] uppercase font-medium hover:bg-gold hover:text-ink transition-colors"
               >
                 Reset All Filters

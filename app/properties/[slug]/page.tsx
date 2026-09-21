@@ -24,19 +24,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${project.name} — Luxury ${project.type} in ${project.location}`,
+    title: `${project.name} — ${project.type} in ${project.location}`,
     description: project.description,
     openGraph: {
       title: `${project.name} | EVERON Real Estate`,
       description: project.description,
-      images: [
-        {
-          url: project.image,
-          width: 1200,
-          height: 675,
-          alt: project.name,
-        },
-      ],
       type: "website",
     },
   };
@@ -61,7 +53,6 @@ export default async function ProjectPage({ params }: PageProps) {
     "@type": project.type === "Commercial" ? "CommercialBuilding" : "ApartmentComplex",
     name: project.name,
     description: project.description,
-    image: `https://everon.com.bd${project.image}`,
     address: {
       "@type": "PostalAddress",
       addressLocality: project.location,

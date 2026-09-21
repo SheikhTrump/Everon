@@ -3,13 +3,13 @@ import HomeView from "@/components/HomeView";
 import { siteConfig, projects } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "EVERON — Building Tomorrow's Dhaka | Luxury Real Estate Developer",
+  title: "EVERON — Real Estate, Planned Right",
   description:
-    "Everon crafts iconic living sanctuaries and Grade-A commercial spaces in Bangladesh since 2005. Discover residential enclaves in Gulshan, Banani, Chittagong & Purbachal.",
+    "Everon is a newly launched real estate developer in Bangladesh, currently planning projects in Gulshan, Banani, Chittagong & Purbachal.",
   openGraph: {
-    title: "EVERON — Building Tomorrow's Dhaka",
+    title: "EVERON — Real Estate, Planned Right",
     description:
-      "Premium real estate developer crafting iconic living spaces in Bangladesh since 2005.",
+      "A newly launched real estate developer in Bangladesh, currently planning projects in Dhaka and Chittagong.",
     type: "website",
   },
 };
@@ -37,8 +37,6 @@ export default function Home() {
       latitude: 23.7937,
       longitude: 90.4023,
     },
-    foundingDate: "2005",
-    numberOfEmployees: "150+",
     makesOffer: projects.map((p) => ({
       "@type": "Offer",
       itemOffered: {

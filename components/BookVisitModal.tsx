@@ -22,7 +22,7 @@ export default function BookVisitModal({
     project: defaultProject || (projects[0]?.name ?? ""),
     date: "",
     timeSlot: "Morning (10:00 AM — 1:00 PM)",
-    tourType: "Private Site Tour",
+    tourType: "In-Person Consultation",
   });
   const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
@@ -132,10 +132,10 @@ export default function BookVisitModal({
                   REF ID: {referenceId}
                 </div>
                 <h3 className="font-display text-2xl sm:text-3xl text-ink mb-3">
-                  Private Viewing Arranged
+                  Consultation Requested
                 </h3>
                 <p className="text-slate text-sm sm:text-base max-w-md mx-auto mb-6 leading-relaxed">
-                  Thank you, <span className="text-ink font-semibold">{formData.name}</span>. Our Senior Private Client Advisor will contact you within 2 hours to confirm your personalized arrival itinerary.
+                  Thank you, <span className="text-ink font-semibold">{formData.name}</span>. Someone from our team will contact you within 2 hours to confirm a time.
                 </p>
                 <div className="p-4 bg-sand/60 border border-sand text-xs text-slate max-w-md mx-auto text-left space-y-1">
                   <p><span className="font-semibold text-ink">Project:</span> {formData.project}</p>
@@ -155,13 +155,13 @@ export default function BookVisitModal({
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-6 h-[1px] bg-gold" />
-                    <p className="text-caption text-gold">Exclusive Access</p>
+                    <p className="text-caption text-gold">Book a Time</p>
                   </div>
                   <h3 className="font-display text-2xl sm:text-3xl text-ink">
-                    Book a Private Viewing
+                    Book a Consultation
                   </h3>
                   <p className="text-xs sm:text-sm text-slate mt-1">
-                    Experience Everon&apos;s landmark architectural developments with a dedicated Private Client Director.
+                    Talk to our team about any project in our current planning pipeline.
                   </p>
                 </div>
 
@@ -262,9 +262,9 @@ export default function BookVisitModal({
                     </label>
                     <div className="grid grid-cols-3 gap-2">
                       {[
-                        "Private Site Tour",
-                        "Virtual 3D Walkthrough",
-                        "Lounge Consultation",
+                        "In-Person Consultation",
+                        "Video Call",
+                        "Phone Call",
                       ].map((type) => (
                         <button
                           key={type}

@@ -40,11 +40,17 @@
   --font-body: var(--font-body);
 }
 
-/* ─── Base Reset ─── */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ─── Base Reset ───
+   Wrapped in @layer base so Tailwind utility classes (p-*, m-*, space-y-*, etc.)
+   can still override it — unlayered rules always beat @layer rules in the
+   cascade regardless of specificity, which was silently zeroing every
+   padding/margin utility on the site. */
+@layer base {
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 html {

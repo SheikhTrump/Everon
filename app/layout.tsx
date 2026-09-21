@@ -20,41 +20,38 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-import CustomCursor from "@/components/CustomCursor";
-import ScrollProgressBar from "@/components/ScrollProgressBar";
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://everon.com.bd"),
   title: {
-    default: "EVERON — Premium Real Estate Developer | Dhaka, Bangladesh",
+    default: "EVERON — Real Estate Developer | Dhaka, Bangladesh",
     template: "%s | EVERON Bangladesh",
   },
   description:
-    "Everon crafts iconic living sanctuaries and Grade-A commercial spaces that define the future of urban Bangladesh. Nineteen years of architectural integrity in residential and commercial developments.",
+    "Everon is a newly launched real estate developer in Bangladesh, currently planning residential and commercial projects in Dhaka and Chittagong.",
   keywords: [
     "Everon",
     "real estate Bangladesh",
-    "Dhaka luxury apartments",
+    "Dhaka apartments",
     "Gulshan residences",
-    "Banani luxury living",
+    "Banani apartments",
     "Chittagong property",
     "commercial towers Dhaka",
   ],
   authors: [{ name: "EVERON Real Estate Ltd." }],
   creator: "EVERON",
   openGraph: {
-    title: "EVERON — Building Tomorrow's Dhaka",
+    title: "EVERON — Real Estate, Planned Right",
     description:
-      "Premium real estate developer crafting iconic living spaces in Bangladesh since 2005.",
+      "A newly launched real estate developer in Bangladesh, currently planning projects in Dhaka and Chittagong.",
     type: "website",
     locale: "en_US",
     siteName: "EVERON Real Estate",
   },
   twitter: {
     card: "summary_large_image",
-    title: "EVERON — Premium Real Estate Developer",
+    title: "EVERON — Real Estate Developer",
     description:
-      "Crafting iconic living spaces in Bangladesh since 2005.",
+      "A newly launched real estate developer, currently planning projects in Bangladesh.",
   },
   robots: {
     index: true,
@@ -68,8 +65,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${inter.variable} ${cormorant.variable} min-h-full flex flex-col font-body`}
       >
-        <ScrollProgressBar />
-        <CustomCursor />
         <SmoothScroll>
           <Header />
           <main className="flex-1">{children}</main>

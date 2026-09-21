@@ -177,7 +177,7 @@ export default function PaymentPlanTable({
             </div>
 
             <p className="text-[11px] text-base/40 leading-relaxed">
-              * Everon maintains preferred partnerships with Standard Chartered, Eastern Bank, and BRAC Bank offering fast-track private client mortgages.
+              * This is an indicative estimate only. Actual financing terms depend on your bank and eligibility.
             </p>
           </div>
         </div>

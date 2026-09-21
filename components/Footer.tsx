@@ -12,22 +12,20 @@ interface FooterLinkItem {
 }
 
 const sitemapData: Record<string, FooterLinkItem[]> = {
-  Developments: [
-    { label: "Residential Sanctuaries", href: "/properties?type=Residential" },
-    { label: "Commercial Landmarks", href: "/properties?type=Commercial" },
-    { label: "Land Enclaves", href: "/properties?type=Land+Development" },
-    { label: "Complete Portfolio", href: "/properties" },
+  Projects: [
+    { label: "Residential", href: "/properties?type=Residential" },
+    { label: "Commercial", href: "/properties?type=Commercial" },
+    { label: "Land Development", href: "/properties?type=Land+Development" },
+    { label: "All Projects", href: "/properties" },
   ],
-  "Architecture & Firm": [
-    { label: "The Everon Heritage", href: "/about" },
-    { label: "Leadership & Partners", href: "/about#leadership" },
-    { label: "News & Architectural Press", href: "/news" },
-    { label: "Careers & Fellowships", href: "/careers" },
+  Company: [
+    { label: "About Everon", href: "/about" },
+    { label: "Careers", href: "/careers" },
   ],
-  "Client Advisory": [
-    { label: "Schedule Private Tour", action: true },
-    { label: "Executive Contact", href: "/contact" },
-    { label: "WhatsApp Concierge", href: siteConfig.whatsapp, external: true },
+  Contact: [
+    { label: "Book a Consultation", action: true },
+    { label: "Contact Us", href: "/contact" },
+    { label: "WhatsApp", href: siteConfig.whatsapp, external: true },
   ],
 };
 
@@ -79,11 +77,11 @@ export default function Footer() {
               <BrandLogo size="large" />
             </Link>
             <p className="text-sm leading-relaxed text-base/60 max-w-md">
-              Everon designs and delivers iconic living sanctuaries and Grade-A commercial landmarks across urban Bangladesh. Nineteen years of architectural integrity, structural science, and generational permanence.
+              {siteConfig.description}
             </p>
 
             <div className="pt-2 space-y-2 text-xs font-mono">
-              <p className="text-gold uppercase tracking-widest">Private Advisory Office</p>
+              <p className="text-gold uppercase tracking-widest">Office</p>
               <p className="text-base/80">{siteConfig.address}</p>
             </div>
 
@@ -163,13 +161,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Prestigious Industry Accreditations & Colophon */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-white/40">
+        {/* Status Note */}
+        <div className="mt-16 pt-8 border-t border-white/10 text-xs font-mono text-white/40">
           <p>
-            REHAB Member #2005-084 · BNBC 2020 Seismic Code Zone IV · USGBC Green Building Associate
-          </p>
-          <p className="text-gold/70">
-            ISO 9001:2015 QUALITY MANAGEMENT CERTIFIED
+            Everon is newly launched. All projects listed on this site are currently in the planning stage.
           </p>
         </div>
       </div>

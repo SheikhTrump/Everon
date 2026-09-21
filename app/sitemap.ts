@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { projects, newsArticles } from "@/lib/data";
+import { projects } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://everon.com.bd";
@@ -22,12 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/news`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
     },
     {
       url: `${baseUrl}/careers`,
@@ -62,12 +56,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  const newsPages: MetadataRoute.Sitemap = newsArticles.map((article) => ({
-    url: `${baseUrl}/news/${article.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.65,
-  }));
-
-  return [...staticPages, ...projectPages, ...newsPages];
+  return [...staticPages, ...projectPages];
 }

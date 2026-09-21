@@ -27,11 +27,11 @@ export default function PrivacyPage() {
           </p>
           <h3 className="font-display text-lg text-ink pt-4">2. Usage &amp; Non-Disclosure</h3>
           <p>
-            Your information is exclusively utilized by our Senior Private Client Advisory to coordinate your requested itinerary and provide tailored acquisition information. We never sell, lease, or distribute private client data to third-party marketing brokers.
+            Your information is used only to respond to your inquiry and follow up on your request. We never sell, lease, or distribute your data to third-party marketing brokers.
           </p>
-          <h3 className="font-display text-lg text-ink pt-4">3. Security Standards</h3>
+          <h3 className="font-display text-lg text-ink pt-4">3. Security</h3>
           <p>
-            All submitted consultation inquiries are encrypted and processed under ISO 9001:2015 organizational standards.
+            Submitted inquiries are handled by our internal team and are not shared beyond what is needed to respond to you.
           </p>
         </div>
       </div>

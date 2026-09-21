@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import CareersView from "@/components/CareersView";
 
 export const metadata: Metadata = {
-  title: "Careers & Architectural Opportunities | EVERON",
+  title: "Careers | EVERON",
   description:
-    "Explore career opportunities in structural engineering, luxury architectural design, and private client advisory with Everon in Dhaka and Chittagong.",
+    "Career opportunities in engineering, design, and client advisory with Everon, a newly launched real estate developer in Dhaka and Chittagong.",
   openGraph: {
-    title: "Careers at EVERON Real Estate",
-    description:
-      "Join our multidisciplinary council of architects, engineers, and visionaries building tomorrow's Bangladesh.",
+    title: "Careers at EVERON",
+    description: "Join Everon's founding team in Dhaka and Chittagong.",
   },
 };
 

@@ -1,16 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/data";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const bgY = useTransform(scrollY, [0, 1000], [0, 250]);
-  const bgScale = useTransform(scrollY, [0, 1000], [1, 1.06]);
-
-  // Staggered text animation variants
   const containerVariants = {
     hidden: {},
     visible: {
@@ -37,46 +31,28 @@ export default function Hero() {
   const taglineWords = siteConfig.tagline.split(" ");
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
-      {/* Parallax Background */}
-      <motion.div
-        style={{ y: bgY, scale: bgScale }}
-        className="absolute inset-0 will-change-transform"
-      >
-        <Image
-          src="/images/hero-building.jpg"
-          alt="Everon flagship tower at golden hour in Dhaka"
-          fill
-          className="object-cover object-center"
-          priority
-          quality={95}
-          sizes="100vw"
-        />
-        {/* Art-Directed Architectural Scrim for Flawless Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/40" />
-      </motion.div>
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-ink">
+      {/* Minimal architectural grid backdrop — no photography */}
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(201,166,107,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(201,166,107,0.5) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+      />
+      <div className="absolute top-1/3 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-emerald/20 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Floating particles effect (CSS only, lightweight) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-gold/30 rounded-full animate-float"
-            style={{
-              left: `${12 + i * 18}%`,
-              top: `${25 + (i % 3) * 22}%`,
-              animationDelay: `${i * 1.8}s`,
-              animationDuration: `${7 + i * 2}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Hero Content — Anchored with Generous Breathing Room */}
+      {/* Hero Content */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-12 w-full pt-28 pb-20">
         <div className="max-w-2xl lg:max-w-3xl">
-          {/* Monumental Tagline */}
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-8 h-[1px] bg-gold" />
+            <p className="text-caption text-gold uppercase tracking-widest">
+              New Developer · Dhaka &amp; Chittagong
+            </p>
+          </div>
+
           <motion.h1
             variants={containerVariants}
             initial="hidden"
@@ -100,18 +76,15 @@ export default function Hero() {
             })}
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-lg sm:text-xl text-base/85 max-w-xl mb-10 leading-relaxed font-normal"
           >
-            Crafting iconic living sanctuaries that define the future of urban
-            Bangladesh. Nineteen years of uncompromising architectural distinction.
+            {siteConfig.description}
           </motion.p>
 
-          {/* Distinct Architectural CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,47 +95,20 @@ export default function Hero() {
               href="/properties"
               className="px-8 py-4 bg-gold text-ink text-xs font-mono tracking-[0.16em] uppercase font-semibold hover:bg-base transition-colors duration-300 shadow-2xl inline-flex items-center gap-3"
             >
-              Explore Portfolio
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
+              View Planned Projects
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
             <Link
               href="/about"
               className="px-8 py-4 border border-white/30 text-base text-xs font-mono tracking-[0.16em] uppercase font-medium hover:border-gold hover:text-gold backdrop-blur-sm transition-colors duration-300"
             >
-              Our Heritage
+              About Everon
             </Link>
           </motion.div>
         </div>
       </div>
-
-      {/* Architectural Folio Footer Strip (Replacing Cheesy Bouncing Scroll Cue) */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.1, duration: 0.8 }}
-        className="absolute bottom-6 inset-x-0 max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between pointer-events-none text-[11px] font-mono text-white/40 tracking-wider uppercase border-t border-white/10 pt-4"
-      >
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-gold/70" />
-          <span>Vol. XIX · Masterplan Index 2026</span>
-        </div>
-        <div className="hidden sm:flex items-center gap-6">
-          <span>Gulshan · Banani · Purbachal · Chittagong</span>
-          <span className="text-gold/80">Est. 2007</span>
-        </div>
-      </motion.div>
     </section>
   );
 }
